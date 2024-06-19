@@ -12,8 +12,8 @@ const testSuiteName = 'From Scratch Tests';
 const scoresDir = path.join(__dirname, '..', 'scores');
 const scoreCounter = new ScoreCounter(testSuiteName, scoresDir);
 
-const log = jest.spyOn(console, 'log').mockImplementation(() => {});
-const logError = jest.spyOn(console, 'error').mockImplementation(() => {});
+const log = jest.spyOn(console, 'log').mockImplementation(() => { });
+const logError = jest.spyOn(console, 'error').mockImplementation(() => { });
 
 const returnRandomString = () => Math.random().toString(36).substring(7);
 
@@ -65,7 +65,7 @@ describe(testSuiteName, () => {
   });
 
   it('handleResolvedOrRejectedPromise - uses .then to log and return (in a promise) the value from the passed in promise', () => {
-    const randomValue = `You're handleResolvedOrRejectedPromise value: ${returnRandomString()}`;
+    const randomValue = `Your handleResolvedOrRejectedPromise value: ${returnRandomString()}`;
 
     return handleResolvedOrRejectedPromise(Promise.resolve(randomValue))
       .then((value) => {
